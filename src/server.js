@@ -7,10 +7,28 @@ import emprestimosRouter from "./routes/emprestimos.routes.js"
 
 const app = express()
 
+function logger(req, res, next) {
+    const inicio = Date.now()
+
+    // 'finish' dispara quando a resposta já foi enviada ao cliente
+    res.on('finish', () => {
+        const ms = Date.now() - inicio
+        console.log(`${req.method} ${req.url} — ${ms}ms`)
+    })
+
+    next() // o fluxo segue IMEDIATAMENTE, sem esperar o log
+}
+
 app.use(express.json()) // traduz o corpo JSON da requisição
+app.use(logger)
 app.use("/emprestimos", emprestimosRouter)
 // app.use('/users', usersRouter) // tudo que começa com /users vai para o router de users
 // app.use('/products', productsRouter) // novo
+
+
+
+
+
 
 // src/server.js (trecho)
 app.use((err, req, res, next) => {
