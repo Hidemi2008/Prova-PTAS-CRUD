@@ -10,6 +10,7 @@ router.get('/', listEmprestimos)
 router.get('/:id', getEmprestimos)
 router.post('/', createEmprestimos)
 router.put('/:id', updateEmprestimos)
+router.patch('/:id', updateEmprestimos)
 router.delete('/:id', deleteEmprestimos)
 
 export default router

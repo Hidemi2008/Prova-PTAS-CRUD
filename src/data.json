@@ -3,8 +3,8 @@
     "id": 1,
     "nomeAluno": "Gabriel Hidemi",
     "livro": "Teste",
-    "devolvidoEm": null,
-    "luta": "teste"
+    "devolvidoEm": true,
+    "deletedAt": "2026-10-02T18:01:41.546Z"
   },
   {
     "id": 2,
