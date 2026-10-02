@@ -6,36 +6,36 @@ export const emprestimosModels = {
   },
 
   async findById(id) {
-    const product = (await readEmprestimos()).find(p => p.id === id && !p.deletedAt)
-    return product || null
+    const emprestimo = (await readEmprestimos()).find(p => p.id === id && !p.deletedAt)
+    return emprestimo || null
   },
 
   async create(data) {
-    const products = await readEmprestimos()
-    const id = products.length ? Math.max(...products.map(p => p.id)) + 1 : 1
+    const emprestimo = await readEmprestimos()
+    const id = emprestimo.length ? Math.max(...emprestimo.map(p => p.id)) + 1 : 1
     const novo = { id, ...data }
-    products.push(novo)
-    await writeEmprestimos(products)
+    emprestimo.push(novo)
+    await writeEmprestimos(emprestimo)
     return novo
   },
 
   // Devolve o produto atualizado ou null se não existir
   async update(id, data) {
-    const products = await readEmprestimos()
-    const i = products.findIndex(p => p.id === id && !p.deletedAt)
+    const emprestimo = await readEmprestimos()
+    const i = emprestimo.findIndex(p => p.id === id && !p.deletedAt)
     if (i === -1) return null
-    products[i] = { ...products[i], ...data, id } // id nunca é sobrescrito
-    await writeEmprestimos(products)
-    return products[i]
+    emprestimo[i] = { ...emprestimo[i], ...data, id } // id nunca é sobrescrito
+    await writeEmprestimos(emprestimo)
+    return emprestimo[i]
   },
 
   // Soft delete (mesmo padrão dos users). Devolve true/false
   async remove(id) {
-    const products = await readEmprestimos()
-    const i = products.findIndex(p => p.id === id && !p.deletedAt)
+    const emprestimos = await readEmprestimos()
+    const i = emprestimos.findIndex(p => p.id === id && !p.deletedAt)
     if (i === -1) return false
-    products[i].deletedAt = new Date().toISOString()
-    await writeEmprestimos(products)
+    emprestimos[i].deletedAt = new Date().toISOString()
+    await writeEmprestimos(emprestimos)
     return true
   },
 }
