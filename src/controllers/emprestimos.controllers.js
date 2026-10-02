@@ -7,22 +7,18 @@ export async function listEmprestimos(req, res, next) {
     } catch (err) { next(err) }
 }
 
-export async function listEmprestimosId(req, res, next) {
-    try {
-        res.json(await emprestimosModels.findById(req.params.id))
-    } catch (err) { next(err) }
-}
-
 export async function getEmprestimos(req, res, next) {
     try {
-        const product = await emprestimosModels.findById(Number(req.params.id))
-        if (!product) return res.status(404).json({ erro: 'não encontrado' })
-        res.json(product)
+        const emprestimos = await emprestimosModels.findById(Number(req.params.id))
+        if (!emprestimos) return res.status(404).json({ erro: 'não encontrado' })
+        res.json(emprestimos)
     } catch (err) { next(err) }
 }
 
 export async function createEmprestimos(req, res, next) {
     try {
+        if (!req.body.nomeAluno) return res.status(400).json({ erro: 'Precisa ser colocado um nome' })
+        if (!req.body.livro) return res.status(400).json({ erro: 'Precisa ser colocado um Livro' })
         res.status(201).json(await emprestimosModels.create(req.body))
     } catch (err) { next(err) }
 }

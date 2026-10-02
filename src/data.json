@@ -1,14 +1,40 @@
 [
-    {
-        "id": 1,
-        "nomeAluno": "Ana",
-        "livro": "Clean Code",
-        "devolvidoEm": null
-    },
-    {
-        "id": 2,
-        "nomeAluno": "Ana",
-        "livro": "Clean Code",
-        "devolvidoEm": null
-    }
+  {
+    "id": 1,
+    "nomeAluno": "Ana",
+    "livro": "Clean Code",
+    "devolvidoEm": null
+  },
+  {
+    "id": 2,
+    "nomeAluno": "Ana",
+    "livro": "Clean Code",
+    "devolvidoEm": null
+  },
+  {
+    "id": 3,
+    "nomeAluno": "Gabriel",
+    "livro": "Teste",
+    "devolvidoEm": null
+  },
+  {
+    "id": 4,
+    "nomeAluno": "Gabriel",
+    "livro": "Teste",
+    "devolvidoEm": null
+  },
+  {
+    "id": 5,
+    "nomeAluno": "Gabriel",
+    "livro": "Teste",
+    "devolvidoEm": null,
+    "luta": "teste"
+  },
+  {
+    "id": 6,
+    "nomeAluno": "Gabriel",
+    "livro": "Teste",
+    "devolvidoEm": null,
+    "luta": "teste"
+  }
 ]
