@@ -2,7 +2,7 @@
 import { Router } from 'express'
 import {
     createEmprestimos, deleteEmprestimos, getEmprestimos, listEmprestimos, updateEmprestimos
-} from '../controllers/emprestimos.controllers'
+} from '../controllers/emprestimos.controllers.js'
 
 const router = Router()
 
