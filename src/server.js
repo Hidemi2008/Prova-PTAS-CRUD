@@ -22,13 +22,10 @@ function logger(req, res, next) {
 app.use(express.json()) // traduz o corpo JSON da requisição
 app.use(logger)
 app.use("/emprestimos", emprestimosRouter)
-// app.use('/users', usersRouter) // tudo que começa com /users vai para o router de users
-// app.use('/products', productsRouter) // novo
 
-
-
-
-
+app.use((req, res) => {
+    res.status(404).json({ erro: 'rota não encontrada' })
+})
 
 // src/server.js (trecho)
 app.use((err, req, res, next) => {
