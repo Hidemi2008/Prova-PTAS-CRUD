@@ -7,6 +7,12 @@ export async function listEmprestimos(req, res, next) {
     } catch (err) { next(err) }
 }
 
+export async function listEmprestimosId(req, res, next) {
+    try {
+        res.json(await emprestimosModels.findById(req.params.id))
+    } catch (err) { next(err) }
+}
+
 export async function getEmprestimos(req, res, next) {
     try {
         const product = await emprestimosModels.findById(Number(req.params.id))
