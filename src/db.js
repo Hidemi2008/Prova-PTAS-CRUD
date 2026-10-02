@@ -22,8 +22,8 @@ async function writeJson(path, data) {
     await writeFile(path, JSON.stringify(data, null, 2), 'utf8')
 }
 
-export const readProducts = () => readJson(EMPRESTIMOS_PATH)
-export const writeProducts = (emprestimos) => writeJson(EMPRESTIMOS_PATH, emprestimos)
+export const readEmprestimos = () => readJson(EMPRESTIMOS_PATH)
+export const writeEmprestimos = (emprestimos) => writeJson(EMPRESTIMOS_PATH, emprestimos)
 
 // export const readUsers = () => readJson(USERS_PATH)
 // export const writeUsers = (users) => writeJson(USERS_PATH, users)

@@ -1,15 +1,15 @@
 // Só o mapa: URL + método HTTP → função do controller.
 import { Router } from 'express'
 import {
-    listProducts, getProduct, createProduct, updateProduct, deleteProduct,
-} from '../controllers/products.controller.js'
+    createEmprestimos, deleteEmprestimos, getEmprestimos, listEmprestimos, updateEmprestimos
+} from '../controllers/emprestimos.controllers'
 
 const router = Router()
 
-router.get('/', listProducts)
-router.get('/:id', getProduct)
-router.post('/', createProduct)
-router.put('/:id', updateProduct)
-router.delete('/:id', deleteProduct)
+router.get('/', listEmprestimos)
+router.get('/:id', getEmprestimos)
+router.post('/', createEmprestimos)
+router.put('/:id', updateEmprestimos)
+router.delete('/:id', deleteEmprestimos)
 
 export default router
