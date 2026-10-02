@@ -1,36 +1,36 @@
-// src/models/users.model.js
-// Único arquivo que "sabe" que os usuários moram em um arquivo JSON.
-import { readUsers, writeUsers } from '../db.js'
+// // src/models/users.model.js
+// // Único arquivo que "sabe" que os usuários moram em um arquivo JSON.
+// import { readUsers, writeUsers } from '../db.js'
 
-export const usersModel = {
-  // Devolve apenas usuários ativos (não removidos via soft delete)
-  async findAll() {
-    return (await readUsers()).filter(u => !u.deletedAt)
-  },
+// export const usersModel = {
+//   // Devolve apenas usuários ativos (não removidos via soft delete)
+//   async findAll() {
+//     return (await readUsers()).filter(u => !u.deletedAt)
+//   },
 
-  // Busca um usuário pelo id; devolve null se não existir
-  async findById(id) {
-    const user = (await readUsers()).find(x => x.id === id && !x.deletedAt)
-    return user || null
-  },
+//   // Busca um usuário pelo id; devolve null se não existir
+//   async findById(id) {
+//     const user = (await readUsers()).find(x => x.id === id && !x.deletedAt)
+//     return user || null
+//   },
 
-  // Cria um usuário novo, gerando o id como "maior id atual + 1"
-  async create(data) {
-    const users = await readUsers()
-    const id = users.length ? Math.max(...users.map(u => u.id)) + 1 : 1
-    const novo = { id, ...data }
-    users.push(novo)
-    await writeUsers(users)
-    return novo
-  },
+//   // Cria um usuário novo, gerando o id como "maior id atual + 1"
+//   async create(data) {
+//     const users = await readUsers()
+//     const id = users.length ? Math.max(...users.map(u => u.id)) + 1 : 1
+//     const novo = { id, ...data }
+//     users.push(novo)
+//     await writeUsers(users)
+//     return novo
+//   },
 
-  // Devolve o usuário atualizado ou null se não existir
-  async update(id, data) {
-    const users = await readUsers()
-    const i = users.findIndex(u => u.id === id && !u.deletedAt)
-    if (i === -1) return null
-    users[i] = { ...users[i], ...data, id } // id nunca é sobrescrito
-    await writeUsers(users)
-    return users[i]
-  },
-}
+//   // Devolve o usuário atualizado ou null se não existir
+//   async update(id, data) {
+//     const users = await readUsers()
+//     const i = users.findIndex(u => u.id === id && !u.deletedAt)
+//     if (i === -1) return null
+//     users[i] = { ...users[i], ...data, id } // id nunca é sobrescrito
+//     await writeUsers(users)
+//     return users[i]
+//   },
+// }
