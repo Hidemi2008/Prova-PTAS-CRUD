@@ -1,1 +1,8 @@
-[]
+[
+    {
+        "id": 1,
+        "nomeAluno": "Ana",
+        "livro": "Clean Code",
+        "devolvidoEm": null
+    }
+]
